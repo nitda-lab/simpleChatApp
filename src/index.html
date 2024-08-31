@@ -2,9 +2,11 @@
 
 <body>
     <h1>simple chat</h1>
+    <p id = 'prevMessage'></p>
     <input id="inputText" type="text">
     <input id="sendButton" type="submit">
-    <ul id="messageList" />
+    <ul id="messageList" /> 
+     
 
     <!-- ライブラリの読み込み -->
     <script src="/socket.io/socket.io.js"></script>
@@ -23,6 +25,10 @@
             li.appendChild(text);
             ul.appendChild(li);
         };
+        const prevMessage = (message) => {
+            const p = document.getElementById('prevMessage');
+            p.textContent = "最新のメッセージ: " + message;
+        }
 
         // 送信ボタンのクリックイベントを検知
         document.getElementById('sendButton').addEventListener('click', () => {
@@ -45,6 +51,8 @@
         socket.on('receiveMessage', (message) => {
             // 受信したメッセージをulタグに挿入
             addMessageList(message);
+            //受信したメッセージをpタグに挿入
+            prevMessage(message);
         });
     </script>
 </body>
