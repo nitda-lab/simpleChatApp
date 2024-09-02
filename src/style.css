@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#messageList {
+    list-style-type: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#messageList li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    position: relative;
+    max-width: 75%; /* 吹き出しの最大幅を指定 */
+    width: fit-content; /* テキストの長さに応じて幅を調整 */
+    display: block; /* 各メッセージをブロック要素として扱う */
+    word-wrap: break-word; /* メッセージが長い場合に改行する */
+    clear: both; /* 吹き出しが横に並ばないようにクリアする */
+}
+
+/* 下側に突起を追加 */
+#messageList li::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* 吹き出しの下側に突起を配置 */
+    left: 20px; /* 吹き出し内の突起の位置を調整 */
+    border: 10px solid transparent;
+    border-top-color: #f1f1f1; /* 吹き出しと同じ色 */
+}
+
+#inputText, #sendButton {
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#prevMessage {
+    margin: 20px 0;
+    text-align: center;
+}

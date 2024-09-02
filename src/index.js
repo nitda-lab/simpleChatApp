@@ -7,6 +7,9 @@ const socketIo = require('socket.io');
 const app = express();
 const server = http.Server(app);
 
+// src フォルダを静的ファイルのルートとして設定
+app.use(express.static('src'));
+
 // 初期化
 const io = socketIo(server);
 const PORT = 3000;
